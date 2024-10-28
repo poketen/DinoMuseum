@@ -468,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 146111090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.406, y: 5.726, z: -4.049}
+  m_LocalPosition: {x: -3.406, y: 5.237, z: -4.049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2714,7 +2714,7 @@ Transform:
   m_GameObject: {fileID: 852872957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.495, y: 6.026, z: 2.089}
+  m_LocalPosition: {x: 7.495, y: 5.285, z: 2.089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3556,7 +3556,7 @@ Transform:
   m_GameObject: {fileID: 1129578179}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.321, y: 5.726, z: 2.1}
+  m_LocalPosition: {x: -2.321, y: 5.255, z: 2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4144,7 +4144,7 @@ Transform:
   m_GameObject: {fileID: 1246580098}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.754, y: 5.77, z: 3.51}
+  m_LocalPosition: {x: -12.754, y: 5.196, z: 3.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4247,6 +4247,13 @@ MonoBehaviour:
   - {fileID: 1129578180}
   - {fileID: 852872958}
   speed: 2
+  waitTimes:
+  - 2
+  - 4
+  - 1
+  - 2
+  - 3
+  - 4
 --- !u!95 &1298761972
 Animator:
   serializedVersion: 5
@@ -4263,11 +4270,40 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:LeftHandPinky2'\n\tTransform
+    'mixamorig:RightHandRing2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftHandMiddle3'\n\tand
+    more ...\n\tFrom animation clip 'mixamo.com'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &1298761974
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298761967}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.6186543
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.262927, z: 0}
 --- !u!1001 &1299434602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4500,6 +4536,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1298761972}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd35da18c024b44794bb9540e623dd1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1298761974}
   m_SourcePrefab: {fileID: 100100000, guid: ddd35da18c024b44794bb9540e623dd1, type: 3}
 --- !u!1001 &1359532293
 PrefabInstance:
@@ -6372,7 +6412,7 @@ Transform:
   m_GameObject: {fileID: 1458819975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.22, y: 6.59, z: 4.046}
+  m_LocalPosition: {x: -3.22, y: 5.415, z: 4.046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
