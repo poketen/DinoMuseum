@@ -17,16 +17,18 @@ public class PlayerMovement : MonoBehaviour
     public float minYRotation = -60f;
     public float maxYRotation = 60f;
 
-    // Referenz für den Rigidbody
+    // Referenz für den Rigidbody und den Animator
     private Rigidbody rb;
+    private Animator animator;
 
     // Variable zur Speicherung der vertikalen Rotationsachse der Kamera
     private float verticalRotation = 0f;
 
     void Start()
     {
-        // Rigidbody-Komponente des Spielers holen
+        // Rigidbody- und Animator-Komponenten holen
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
         // Sicherstellen, dass das Rigidbody nicht umkippt
         rb.freezeRotation = true;
@@ -40,11 +42,15 @@ public class PlayerMovement : MonoBehaviour
         // Drehung um die Y-Achse (A = links, D = rechts)
         float rotateY = Input.GetAxis("Horizontal");
 
+        // Setze den Animator-Bool isWalking basierend auf der Bewegung
+        bool isWalking = (moveZ != 0 || rotateY != 0);
+        animator.SetBool("isWalking", isWalking);
+
         // Rotation um die Y-Achse durch Tasteneingabe
         transform.Rotate(0, rotateY * rotationSpeed * Time.deltaTime, 0);
 
-        // Bewegung entlang der Z-Achse
-        Vector3 move = transform.right * moveZ * moveSpeed * Time.deltaTime;
+        // Bewegung entlang der Z-Achse (vorwärts/rückwärts)
+        Vector3 move = transform.forward * (-moveZ) * moveSpeed * Time.deltaTime;
 
         // Spieler bewegen
         rb.MovePosition(transform.position + move);
